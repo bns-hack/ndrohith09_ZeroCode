@@ -1,0 +1,25 @@
+# dependencies
+zero-app/node_modules
+zero-app/.pnp
+zero-app/.pnp.js
+
+# testing
+zero-app/coverage
+
+# production
+zero-app/build
+
+# misc
+zero-app/.DS_Store
+zero-app/.env.local
+zero-app/.env.development.local
+zero-app/.env.test.local
+zero-app/.env.production.local
+
+zero-app/npm-debug.log*
+zero-app/yarn-debug.log*
+zero-app/yarn-error.log*
+
+zeroapi/.env
+zeroapi/zeroapi/__pycache__
+zeroapi/app/__pycache__
