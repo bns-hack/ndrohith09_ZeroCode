@@ -654,10 +654,11 @@ class Project extends Component {
                   required
                 >
                   <option>INT</option>
-                  <option>VARCHAR(200)</option>
+                  <option>VARCHAR</option>
                   <option>BOOL</option>
                   <option>DATE</option>
                   <option>TIME</option>
+                  <option>DECIMAL</option>
                 </Select>
                 <Text fontSize={'sm'} color="red.300">
                   {error}
