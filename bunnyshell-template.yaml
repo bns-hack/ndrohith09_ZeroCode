@@ -1,0 +1,52 @@
+kind: Environment
+name: ZeroMasterEnv
+type: primary
+urlHandle: z5773y
+components:
+    -
+        kind: Application
+        name: graphapi
+        gitRepo: 'https://github.com/ndrohith09/Zerobase.git'
+        gitBranch: main
+        gitApplicationPath: app-path
+        dockerCompose:
+            build:
+                context: ./app-path
+                dockerfile: Dockerfile
+            environment:
+                DATABASE_URL: 'postgresql://postgres:postgres@pgdb:5432/postgres'
+                PG_DATABASE: postgres
+                PG_HOST: pgdb
+                PG_PASSWORD: postgres
+                PG_PORT: '5432'
+                PG_USER: postgres
+            ports:
+                - '8000:8000'
+        hosts:
+            -
+                hostname: 'graphapi-{{ env.base_domain }}'
+                path: /
+                servicePort: 8000
+    -
+        kind: Database
+        name: pgdb
+        gitRepo: 'https://github.com/ndrohith09/Zerobase.git'
+        gitBranch: main
+        dockerCompose:
+            environment:
+                POSTGRES_DB: postgres
+                POSTGRES_PASSWORD: postgres
+                POSTGRES_USER: postgres
+            image: 'postgres:15.2-alpine3.17'
+            ports:
+                - '5432:5432'
+        volumes:
+            -
+                name: postgres-data
+                mount: /var/lib/postgresql/data
+                subPath: ''
+volumes:
+    -
+        name: postgres-data
+        size: 10Mi
+        type: disk
