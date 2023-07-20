@@ -6,7 +6,7 @@ components:
     -
         kind: Application
         name: graphapi
-        gitRepo: 'https://github.com/ndrohith09/Zerobase.git'
+        gitRepo: 'https://github.com/bns-hack_ndrohith09/Zerobase.git'
         gitBranch: main
         gitApplicationPath: app-path
         dockerCompose:
@@ -30,7 +30,7 @@ components:
     -
         kind: Database
         name: pgdb
-        gitRepo: 'https://github.com/ndrohith09/Zerobase.git'
+        gitRepo: 'https://github.com/bns-hack/ndrohith09_Zerobase.git'
         gitBranch: main
         dockerCompose:
             environment:
